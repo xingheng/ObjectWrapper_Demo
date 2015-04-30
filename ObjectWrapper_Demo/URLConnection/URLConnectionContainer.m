@@ -11,9 +11,9 @@
 
 @interface URLConnectionContainer()
 
-@property (nonatomic, strong) MyURLConnection *connection;
+@property (nonatomic, RETAIN) MyURLConnection *connection;
 
-@property (nonatomic, strong) NSMutableArray *extraArray;
+@property (nonatomic, RETAIN) NSMutableArray *extraArray;
 
 @end
 
@@ -23,7 +23,7 @@
 - (instancetype)initWithRequest:(NSURLRequest *)request delegate:(id)delegate
 {
     if (self = [super init]) {
-        _connection = [[MyURLConnection alloc] initWithRequest:request delegate:delegate];
+        _connection = [[MyURLConnection alloc] initWithRequest:request delegate:delegate startImmediately:NO];
         _extraArray = [[NSMutableArray alloc] init];
         
         [_extraArray addObject:request.URL];
@@ -36,11 +36,16 @@
     NSLog(@"%s, %@", __func__, self);
     NSLog(@"%s, begin to clear the extraArray.", __func__);
     [_extraArray removeAllObjects], _extraArray = nil;
+    RELEASE(_extraArray);
+    
+    DEALLOC(super);
 }
 
 
 - (void)start
 {
+    [NSRunLoop ]
+    
     [self.connection start];
 }
 

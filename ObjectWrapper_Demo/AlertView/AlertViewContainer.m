@@ -11,8 +11,8 @@
 
 @interface AlertViewContainer()
 
-@property (nonatomic, strong) MyAlertView *alertView;
-@property (nonatomic, strong) NSMutableArray *extraArray;
+@property (nonatomic, RETAIN) MyAlertView *alertView;
+@property (nonatomic, RETAIN) NSMutableArray *extraArray;
 
 @end
 
@@ -55,6 +55,9 @@
     
     NSLog(@"%s, begin to clear the extraArray.", __func__);
     [_extraArray removeAllObjects], _extraArray = nil;
+    RELEASE(_extraArray);
+    
+    DEALLOC(super);
 }
 
 
@@ -63,6 +66,7 @@
     if (self.alertView)
     {
         [self.alertView show];
+        RELEASE(self.alertView);
     }
 }
 

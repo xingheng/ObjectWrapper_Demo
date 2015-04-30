@@ -146,10 +146,10 @@
 		68D1C85F1AF20F0B0034BE59 /* URLConnection */ = {
 			isa = PBXGroup;
 			children = (
-				68D1C8601AF20F0B0034BE59 /* MyURLConnection.h */,
-				68D1C8611AF20F0B0034BE59 /* MyURLConnection.m */,
 				68D1C8621AF20F0B0034BE59 /* URLConnectionContainer.h */,
 				68D1C8631AF20F0B0034BE59 /* URLConnectionContainer.m */,
+				68D1C8601AF20F0B0034BE59 /* MyURLConnection.h */,
+				68D1C8611AF20F0B0034BE59 /* MyURLConnection.m */,
 			);
 			path = URLConnection;
 			sourceTree = "<group>";
@@ -379,6 +379,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/$PROJECT_NAME/PrefixHeader.pch;
 				INFOPLIST_FILE = ObjectWrapper_Demo/Info.plist;
@@ -391,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/$PROJECT_NAME/PrefixHeader.pch;
 				INFOPLIST_FILE = ObjectWrapper_Demo/Info.plist;

@@ -9,7 +9,24 @@
 #ifndef ObjectWrapper_Demo_PrefixHeader_pch
 #define ObjectWrapper_Demo_PrefixHeader_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#if __has_feature(objc_arc)
+
+#define STRONG  strong
+#define WEAK    weak
+
+#define RELEASE(x)      (void)(x)
+#define DEALLOC(x)      (void)(x)
+
+#define RETAIN          strong
+
+#else
+
+#define RETAIN          retain
+
+#define RELEASE(x)      [x release]
+#define DEALLOC(x)      [x dealloc]
+
+
+#endif // __has_feature(objc_arc)
 
 #endif

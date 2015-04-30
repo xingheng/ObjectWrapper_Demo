@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#if 1
+#if 0
     [self testEntry1];
 #else
     [self testEntry2];
@@ -30,6 +30,7 @@
 - (void)dealloc
 {
     NSLog(@"%s, %@", __func__, self);
+    DEALLOC(super);
 }
 
 
@@ -37,12 +38,14 @@
 {
     AlertViewContainer *alert = [[AlertViewContainer alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"1", @"2", @"3", @"4", nil];
     [alert show];
+    RELEASE(alert);
 }
 
 - (void)testEntry2
 {
     URLConnectionContainer *connection = [[URLConnectionContainer alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]] delegate:self];
     [connection start];
+    RELEASE(connection);
 }
 
 
