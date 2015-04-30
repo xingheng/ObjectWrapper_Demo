@@ -12,6 +12,9 @@
 		68D1C8291AF1F45C0034BE59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D1C8281AF1F45C0034BE59 /* Images.xcassets */; };
 		68D1C82C1AF1F45C0034BE59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D1C82A1AF1F45C0034BE59 /* LaunchScreen.xib */; };
 		68D1C8381AF1F45C0034BE59 /* ObjectWrapper_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8371AF1F45C0034BE59 /* ObjectWrapper_DemoTests.m */; };
+		68D1C8431AF1F4930034BE59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8421AF1F4930034BE59 /* MainViewController.m */; };
+		68D1C84A1AF1F60B0034BE59 /* AlertViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8491AF1F60B0034BE59 /* AlertViewContainer.m */; };
+		68D1C84D1AF1F62D0034BE59 /* MyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 		68D1C8311AF1F45C0034BE59 /* ObjectWrapper_DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectWrapper_DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D1C8361AF1F45C0034BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68D1C8371AF1F45C0034BE59 /* ObjectWrapper_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectWrapper_DemoTests.m; sourceTree = "<group>"; };
+		68D1C8411AF1F4930034BE59 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		68D1C8421AF1F4930034BE59 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		68D1C8481AF1F60B0034BE59 /* AlertViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewContainer.h; sourceTree = "<group>"; };
+		68D1C8491AF1F60B0034BE59 /* AlertViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewContainer.m; sourceTree = "<group>"; };
+		68D1C84B1AF1F62D0034BE59 /* MyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlertView.h; sourceTree = "<group>"; };
+		68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,9 @@
 			children = (
 				68D1C8251AF1F45C0034BE59 /* AppDelegate.h */,
 				68D1C8261AF1F45C0034BE59 /* AppDelegate.m */,
+				68D1C8411AF1F4930034BE59 /* MainViewController.h */,
+				68D1C8421AF1F4930034BE59 /* MainViewController.m */,
+				68D1C8471AF1F5DB0034BE59 /* AlertView */,
 				68D1C8281AF1F45C0034BE59 /* Images.xcassets */,
 				68D1C82A1AF1F45C0034BE59 /* LaunchScreen.xib */,
 				68D1C8211AF1F45C0034BE59 /* Supporting Files */,
@@ -109,6 +121,17 @@
 				68D1C8361AF1F45C0034BE59 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68D1C8471AF1F5DB0034BE59 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				68D1C8481AF1F60B0034BE59 /* AlertViewContainer.h */,
+				68D1C8491AF1F60B0034BE59 /* AlertViewContainer.m */,
+				68D1C84B1AF1F62D0034BE59 /* MyAlertView.h */,
+				68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */,
+			);
+			name = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D1C84D1AF1F62D0034BE59 /* MyAlertView.m in Sources */,
 				68D1C8271AF1F45C0034BE59 /* AppDelegate.m in Sources */,
+				68D1C84A1AF1F60B0034BE59 /* AlertViewContainer.m in Sources */,
+				68D1C8431AF1F4930034BE59 /* MainViewController.m in Sources */,
 				68D1C8241AF1F45C0034BE59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
