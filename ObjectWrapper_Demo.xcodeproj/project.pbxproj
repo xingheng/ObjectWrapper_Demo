@@ -15,6 +15,8 @@
 		68D1C8431AF1F4930034BE59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8421AF1F4930034BE59 /* MainViewController.m */; };
 		68D1C84A1AF1F60B0034BE59 /* AlertViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8491AF1F60B0034BE59 /* AlertViewContainer.m */; };
 		68D1C84D1AF1F62D0034BE59 /* MyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */; };
+		68D1C8511AF205AA0034BE59 /* URLConnectionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8501AF205AA0034BE59 /* URLConnectionContainer.m */; };
+		68D1C8541AF205D40034BE59 /* MyURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D1C8531AF205D40034BE59 /* MyURLConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		68D1C8491AF1F60B0034BE59 /* AlertViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewContainer.m; sourceTree = "<group>"; };
 		68D1C84B1AF1F62D0034BE59 /* MyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlertView.h; sourceTree = "<group>"; };
 		68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlertView.m; sourceTree = "<group>"; };
+		68D1C84F1AF205AA0034BE59 /* URLConnectionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectionContainer.h; sourceTree = "<group>"; };
+		68D1C8501AF205AA0034BE59 /* URLConnectionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLConnectionContainer.m; sourceTree = "<group>"; };
+		68D1C8521AF205D40034BE59 /* MyURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyURLConnection.h; sourceTree = "<group>"; };
+		68D1C8531AF205D40034BE59 /* MyURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyURLConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 				68D1C8411AF1F4930034BE59 /* MainViewController.h */,
 				68D1C8421AF1F4930034BE59 /* MainViewController.m */,
 				68D1C8471AF1F5DB0034BE59 /* AlertView */,
+				68D1C84E1AF205780034BE59 /* URLConnection */,
 				68D1C8281AF1F45C0034BE59 /* Images.xcassets */,
 				68D1C82A1AF1F45C0034BE59 /* LaunchScreen.xib */,
 				68D1C8211AF1F45C0034BE59 /* Supporting Files */,
@@ -132,6 +139,17 @@
 				68D1C84C1AF1F62D0034BE59 /* MyAlertView.m */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		68D1C84E1AF205780034BE59 /* URLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				68D1C84F1AF205AA0034BE59 /* URLConnectionContainer.h */,
+				68D1C8501AF205AA0034BE59 /* URLConnectionContainer.m */,
+				68D1C8521AF205D40034BE59 /* MyURLConnection.h */,
+				68D1C8531AF205D40034BE59 /* MyURLConnection.m */,
+			);
+			name = URLConnection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D1C8541AF205D40034BE59 /* MyURLConnection.m in Sources */,
 				68D1C84D1AF1F62D0034BE59 /* MyAlertView.m in Sources */,
 				68D1C8271AF1F45C0034BE59 /* AppDelegate.m in Sources */,
 				68D1C84A1AF1F60B0034BE59 /* AlertViewContainer.m in Sources */,
+				68D1C8511AF205AA0034BE59 /* URLConnectionContainer.m in Sources */,
 				68D1C8431AF1F4930034BE59 /* MainViewController.m in Sources */,
 				68D1C8241AF1F45C0034BE59 /* main.m in Sources */,
 			);

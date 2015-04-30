@@ -8,13 +8,18 @@
 
 #import "MainViewController.h"
 #import "AlertViewContainer.h"
+#import "URLConnectionContainer.h"
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testEntry];
+#if 1
+    [self testEntry1];
+#else
+    [self testEntry2];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,10 +33,48 @@
 }
 
 
-- (void)testEntry
+- (void)testEntry1
 {
     AlertViewContainer *alert = [[AlertViewContainer alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"1", @"2", @"3", @"4", nil];
     [alert show];
+}
+
+- (void)testEntry2
+{
+    URLConnectionContainer *connection = [[URLConnectionContainer alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]] delegate:self];
+    [connection start];
+}
+
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"%s, %@", __func__, alertView);
+}
+
+
+#pragma mark - NSURLConnectionDataDelegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"%s, %@", __func__, connection);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"%s, %@", __func__, connection);
+}
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten
+ totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    NSLog(@"%s, %@", __func__, connection);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"%s, %@", __func__, connection);
 }
 
 @end
