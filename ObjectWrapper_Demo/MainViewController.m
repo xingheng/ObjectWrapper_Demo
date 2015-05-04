@@ -48,6 +48,7 @@
 - (void)testEntry2
 {
     URLConnectionContainer *connection = [[URLConnectionContainer alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]] delegate:self];
+    
     NSLog(@"URLConnectionContainer: starting...");
     [connection start];
     NSLog(@"URLConnectionContainer: finished...");

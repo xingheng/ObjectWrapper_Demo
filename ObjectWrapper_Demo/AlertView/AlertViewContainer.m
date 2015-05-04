@@ -9,6 +9,11 @@
 #import "AlertViewContainer.h"
 #import "MyAlertView.h"
 
+#if __has_feature(objc_arc)
+#warning "NOTE: This file had better be compiled in MRC mode so that we should retain explicitly in it!"
+#endif
+
+
 @interface AlertViewContainer()<UIAlertViewDelegate, MyAlertViewDelegate>
 
 @property (nonatomic, RETAIN) MyAlertView *alertView;
