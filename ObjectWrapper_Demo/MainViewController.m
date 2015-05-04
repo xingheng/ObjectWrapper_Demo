@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#if 0
+#if 1
     [self testEntry1];
 #else
     [self testEntry2];
