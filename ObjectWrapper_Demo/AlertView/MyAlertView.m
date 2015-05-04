@@ -13,6 +13,9 @@
 - (void)dealloc
 {
     NSLog(@"%s, %@", __func__, self);
+    if (_lifeCycleDelegate)
+        [_lifeCycleDelegate onAlertViewDealloc:self];
+    
     DEALLOC(super);
 }
 

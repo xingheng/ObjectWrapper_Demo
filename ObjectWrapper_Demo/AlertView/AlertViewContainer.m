@@ -9,7 +9,7 @@
 #import "AlertViewContainer.h"
 #import "MyAlertView.h"
 
-@interface AlertViewContainer()<UIAlertViewDelegate>
+@interface AlertViewContainer()<UIAlertViewDelegate, MyAlertViewDelegate>
 
 @property (nonatomic, RETAIN) MyAlertView *alertView;
 @property (nonatomic, RETAIN) NSMutableArray *extraArray;
@@ -30,6 +30,7 @@
 {
     if (self = [self init]) {
         _alertView = [[MyAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
+        _alertView.lifeCycleDelegate = self;
         
         _delegate = delegate;
         
@@ -65,6 +66,8 @@
 
 - (void)show
 {
+    RETAINOBJ(self);    // we will release self in onAlertViewDealloc:.
+    
     if (self.alertView)
     {
         [self.alertView show];
@@ -80,6 +83,14 @@
     NSLog(@"%s, %@", __func__, alertView);
     if (self.delegate)
         [self.delegate alertViewContainer:self didDismissWithButtonIndex:buttonIndex];
+}
+
+
+#pragma mark - MyAlertViewDelegate
+
+- (void)onAlertViewDealloc:(MyAlertView *)alertView
+{
+    RELEASE(self);
 }
 
 @end

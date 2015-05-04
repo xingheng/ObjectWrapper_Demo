@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class MyAlertView;
+
+@protocol MyAlertViewDelegate <NSObject>
+
+- (void)onAlertViewDealloc:(MyAlertView *)alertView;
+
+@end
+
+
 @interface MyAlertView : UIAlertView
+
+@property (nonatomic, WEAK) id<MyAlertViewDelegate> lifeCycleDelegate;
 
 @end

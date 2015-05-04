@@ -18,12 +18,14 @@
 #define DEALLOC(x)      (void)(x)
 
 #define RETAIN          strong
+#define RETAINOBJ(x)       (void)(x)
 
 #else
 
 #define WEAK    assign
 
 #define RETAIN          retain
+#define RETAINOBJ(x)    [x retain]
 
 #define RELEASE(x)      [x release]
 #define DEALLOC(x)      [x dealloc]

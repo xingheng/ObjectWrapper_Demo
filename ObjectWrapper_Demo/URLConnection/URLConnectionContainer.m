@@ -47,7 +47,7 @@
 - (void)start
 {
     [self.connection start];
-    [self.connection release];
+    RELEASE(self.connection);
 }
 
 
