@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#if 1
+#if 0
     [self testEntry1];
 #else
     [self testEntry2];
@@ -63,7 +63,7 @@
 }
 
 
-#pragma mark - NSURLConnectionDataDelegate
+#pragma mark - URLConnectionContainerDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
