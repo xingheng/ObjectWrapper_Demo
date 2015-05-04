@@ -11,14 +11,13 @@
 
 #if __has_feature(objc_arc)
 
-#define STRONG  strong
 #define WEAK    weak
 
-#define RELEASE(x)      (void)(x)
-#define DEALLOC(x)      (void)(x)
+#define RELEASE(x)
+#define DEALLOC(x)
 
 #define RETAIN          strong
-#define RETAINOBJ(x)       (void)(x)
+#define RETAINOBJ(x)
 
 #else
 
