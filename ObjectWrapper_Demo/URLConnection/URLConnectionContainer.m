@@ -20,11 +20,13 @@
 
 @implementation URLConnectionContainer
 
-- (instancetype)initWithRequest:(NSURLRequest *)request delegate:(id)delegate
+- (instancetype)initWithRequest:(NSURLRequest *)request delegate:(id<URLConnectionContainerDelegate>)delegate
 {
     if (self = [super init]) {
-        _connection = [[MyURLConnection alloc] initWithRequest:request delegate:delegate startImmediately:NO];
+        _connection = [[MyURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
         _extraArray = [[NSMutableArray alloc] init];
+        
+        _delegate = delegate;
         
         [_extraArray addObject:request.URL];
     }
@@ -44,9 +46,41 @@
 
 - (void)start
 {
-    [NSRunLoop ]
-    
     [self.connection start];
+    [self.connection release];
 }
+
+
+#pragma mark - NSURLConnectionDataDelegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    //NSLog(@"%s, %@", __func__, connection);
+    if (self.delegate)
+        [self.delegate connection:connection didReceiveResponse:response];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    //NSLog(@"%s, %@", __func__, connection);
+    if (self.delegate)
+        [self.delegate connection:connection didReceiveData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten
+ totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    //NSLog(@"%s, %@", __func__, connection);
+    if (self.delegate)
+        [self.delegate connection:connection didSendBodyData:bytesWritten totalBytesWritten:totalBytesWritten totalBytesExpectedToWrite:totalBytesExpectedToWrite];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    //NSLog(@"%s, %@", __func__, connection);
+    if (self.delegate)
+        [self.delegate connectionDidFinishLoading:connection];
+}
+
 
 @end

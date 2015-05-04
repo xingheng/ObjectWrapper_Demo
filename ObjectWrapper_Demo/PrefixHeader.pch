@@ -21,6 +21,8 @@
 
 #else
 
+#define WEAK    assign
+
 #define RETAIN          retain
 
 #define RELEASE(x)      [x release]

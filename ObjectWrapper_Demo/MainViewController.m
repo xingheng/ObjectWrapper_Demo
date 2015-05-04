@@ -10,6 +10,10 @@
 #import "AlertViewContainer.h"
 #import "URLConnectionContainer.h"
 
+@interface MainViewController()<AlertViewContainerDelegate, URLConnectionContainerDelegate>
+
+@end
+
 @implementation MainViewController
 
 - (void)viewDidLoad {
@@ -44,14 +48,16 @@
 - (void)testEntry2
 {
     URLConnectionContainer *connection = [[URLConnectionContainer alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]] delegate:self];
+    NSLog(@"URLConnectionContainer: starting...");
     [connection start];
+    NSLog(@"URLConnectionContainer: finished...");
     RELEASE(connection);
 }
 
 
-#pragma mark - UIAlertViewDelegate
+#pragma mark - AlertViewContainerDelegate
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void)alertViewContainer:(AlertViewContainer *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSLog(@"%s, %@", __func__, alertView);
 }

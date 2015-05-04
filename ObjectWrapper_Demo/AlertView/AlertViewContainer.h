@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class AlertViewContainer;
+
+@protocol AlertViewContainerDelegate <NSObject>
+
+- (void)alertViewContainer:(AlertViewContainer *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
+
+@end
+
 @interface AlertViewContainer : NSObject
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id /*<UIAlertViewDelegate>*/)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+@property (nonatomic, WEAK) id<AlertViewContainerDelegate> delegate;
+
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<AlertViewContainerDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)show;
 

@@ -9,7 +9,7 @@
 #import "AlertViewContainer.h"
 #import "MyAlertView.h"
 
-@interface AlertViewContainer()
+@interface AlertViewContainer()<UIAlertViewDelegate>
 
 @property (nonatomic, RETAIN) MyAlertView *alertView;
 @property (nonatomic, RETAIN) NSMutableArray *extraArray;
@@ -26,10 +26,12 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id /*<UIAlertViewDelegate>*/)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id<AlertViewContainerDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
 {
     if (self = [self init]) {
-        _alertView = [[MyAlertView alloc] initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
+        _alertView = [[MyAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
+        
+        _delegate = delegate;
         
         [_extraArray addObject:title];
         [_extraArray addObject:message];
@@ -68,6 +70,16 @@
         [self.alertView show];
         RELEASE(self.alertView);
     }
+}
+
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"%s, %@", __func__, alertView);
+    if (self.delegate)
+        [self.delegate alertViewContainer:self didDismissWithButtonIndex:buttonIndex];
 }
 
 @end

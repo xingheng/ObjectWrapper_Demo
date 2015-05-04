@@ -8,9 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
+@class URLConnectionContainer;
+
+
+@protocol URLConnectionContainerDelegate <NSObject>
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten
+ totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+
+@end
+
+
+
 @interface URLConnectionContainer : NSObject
 
-- (instancetype)initWithRequest:(NSURLRequest *)request delegate:(id)delegate;
+@property (nonatomic, WEAK) id<URLConnectionContainerDelegate>delegate;
+
+
+- (instancetype)initWithRequest:(NSURLRequest *)request delegate:(id<URLConnectionContainerDelegate>)delegate;
 
 - (void)start;
 
